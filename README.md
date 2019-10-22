@@ -8,3 +8,5 @@ The image file and python file should be located in the same folder.
 
 ## Choice of License
 I chose the MIT License as I would like anyone to be able to view and use my code as they wish, e.g. making distributions.
+
+Link to the github repo (click here)[https://github.com/dayluke/comp120-tinkering-graphics]
