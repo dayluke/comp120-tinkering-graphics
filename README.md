@@ -1,1 +1,2 @@
-# comp120-tinkering-graphics
+# COMP120 Tinkering Graphics Project - Contract #5
+Made by Luke Day
