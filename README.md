@@ -1,5 +1,5 @@
 ### COMP120 Tinkering Graphics Project - Contract #5
-Made by Luke Day
+Made by Luke Day (dayluke)
 
 ## Instructions
 Make sure python 3.7, and pygame, are installed.
