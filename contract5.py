@@ -1,5 +1,4 @@
 import pygame
-import numpy as np
 
 # path to image file, which is located in the same folder as this project
 path = "image.jpeg"
@@ -13,10 +12,11 @@ screen = pygame.display.set_mode((500, 750))
 image = pygame.image.load(path).convert()
 
 
-def protanopia():                              # I have no clue on how to simulate colour-blindness, I just altered some
-                                               # of the rgb values of the image in some ways - trial and erroring until
-                                               # I was fairly happy.
-                                               # I'm using 2 for loops to loop through every pixel in the image
+def protanopia():
+    """I have no clue on how to simulate colour-blindness, I just altered some of the rgb values of the image - trial and
+    erroring until I was fairly happy. I'm using 2 for loops to loop through every pixel in the image.
+    """
+
     for x in range(image.get_width()):
         for y in range(image.get_height()):
             pixel = image.get_at((x, y))
@@ -47,7 +47,7 @@ def protanopia():                              # I have no clue on how to simula
             image.set_at((x, y), temp)
 
 
-# i only managed to do one of the main three colour-blindness
+# I only managed to do one of the main three colour-blindness
 
 protanopia()
 
