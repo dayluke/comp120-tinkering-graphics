@@ -4,6 +4,8 @@ I have attempted to simulate colour-blindness onto a image, as with the
 requirements of the contract.
 """
 import pygame
+import os.path
+from os import path
 
 __author__ = 'Luke Day'
 
@@ -17,7 +19,7 @@ pygame.display.set_caption("Contract #5")
 screen = pygame.display.set_mode((500, 750))
 
 # open the image and load it as a pygame.Surface
-image = pygame.image.load(image_path).convert()
+picture = pygame.image.load(image_path).convert()
 
 
 def protanopia():
@@ -29,9 +31,9 @@ def protanopia():
     a given image to simulate protanopia. I have used 2 for loops to ensure
     that I iterate upon every pixel in the image.
     """
-    for x in range(image.get_width()):
-        for y in range(image.get_height()):
-            pixel = image.get_at((x, y))
+    for x in range(picture.get_width()):
+        for y in range(picture.get_height()):
+            pixel = picture.get_at((x, y))
             temp_pixel = pixel
 
             if pixel.r > pixel.g * 2:
@@ -56,7 +58,7 @@ def protanopia():
                     green_diff = original_g - temp_pixel.g
                     green_diff = 20 if green_diff > 20 else green_diff
                     temp_pixel.r = max(min(int(temp_pixel.r+green_diff), 255), 0)
-            image.set_at((x, y), temp_pixel)
+            picture.set_at((x, y), temp_pixel)
 
 
 def main():
@@ -67,7 +69,12 @@ def main():
     It also calls the function 'protanopia' in order to simulate the
     respective colour-blindness.
     """
+    picture_filename = "protanopia.jpg"
     protanopia()
+    if not path.exists(picture_filename):
+        pygame.image.save(picture, picture_filename)
+        print("File saved.")
+
     running = True
 
     while running:
@@ -75,7 +82,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        screen.blit(image, (0, 0))
+        screen.blit(picture, (0, 0))
         pygame.display.update()
 
     exit()
